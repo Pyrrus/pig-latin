@@ -1,0 +1,22 @@
+#latin {
+  width: 500px;
+  padding: 10px;
+  font-size: medium;
+}
+
+body {
+  background-color: #ccc;
+  margin: 30px;
+}
+
+h1 {
+  font-style: oblique;
+  font-family: fantasy;
+}
+
+#output {
+  margin-top: 20px;
+  font-size: 20px;
+  color: red;
+  font-family: monospace;
+}
