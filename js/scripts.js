@@ -1,3 +1,11 @@
+function isVowel(x) {
+
+  if (x == "A" || x == "E" || x == "I" || x == "O" || x == "U" || x == "a" || x == "e" || x == "i" || x == "o" || x == "u")
+    return true;
+  else
+    return false;
+}
+
 $(document).ready(function () {
   $("button").click(function () {
     var words = $("#latin").val();
@@ -15,17 +23,25 @@ $(document).ready(function () {
         var num = 1;
       }
 
-      var firstPart = holder[i].substr(0, num);
-      var lowerpart = holder[i].substr(num);
+      console.log(holder[i].charAt(0))
+      if (isVowel(holder[i].charAt(0))) {
+        holder[i] = holder[i] + "ay";
 
-      if (firstPart.charAt(0) === firstPart.charAt(0).toUpperCase()) {
-        lowercaseUpper = lowerpart.charAt(0).toUpperCase();
       } else {
-        lowercaseUpper = lowerpart.charAt(0);
+        var firstPart = holder[i].substr(0, num);
+        var lowerpart = holder[i].substr(num);
+
+        if (firstPart.charAt(0) === firstPart.charAt(0).toUpperCase()) {
+          lowercaseUpper = lowerpart.charAt(0).toUpperCase();
+        } else {
+          lowercaseUpper = lowerpart.charAt(0);
+        }
+
+        firstPart = firstPart.toLowerCase();
+        holder[i] = lowercaseUpper + lowerpart.slice(1) + firstPart + "ay";
       }
 
-      firstPart = firstPart.toLowerCase();
-      holder[i] = lowercaseUpper + lowerpart.slice(1) + firstPart + "ay";
+
 
 
       if (i === holder.length - 1) {
